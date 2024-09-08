@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 
 const CityTable = () => {
   const [cities, setCities] = useState([]);
-  const [filteredCities, setFilteredCities] = useState([]); // For filtered search results
+  const [filteredCities, setFilteredCities] = useState([]); 
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
 
-  // Fetch cities based on the current page (for infinite scroll)
+
   const fetchCities = async () => {
     try {
       const response = await fetch(
@@ -22,9 +22,8 @@ const CityTable = () => {
       const data = await response.json();
 
       setCities((prev) => [...prev, ...data.records]);
-      setFilteredCities((prev) => [...prev, ...data.records]); // Set filtered cities initially
+      setFilteredCities((prev) => [...prev, ...data.records]); 
 
-      // Stop fetching if there are no more records
       if (data.records.length === 0) {
         setHasMore(false);
       }
@@ -33,15 +32,15 @@ const CityTable = () => {
     }
   };
 
-  // Load initial cities on component mount and on page increment
+
   useEffect(() => {
     fetchCities();
   }, [page]);
 
-  // Search as you type - Filter local city list
+
   useEffect(() => {
     if (searchTerm === '') {
-      setFilteredCities(cities); // Reset to all cities if search is cleared
+      setFilteredCities(cities);
     } else {
       const filtered = cities.filter((city) =>
         city.fields.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,7 +49,6 @@ const CityTable = () => {
     }
   }, [searchTerm, cities]);
 
-  // Sorting functionality
   const sortCities = (key) => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
@@ -79,8 +77,8 @@ const CityTable = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <InfiniteScroll
-        dataLength={filteredCities.length} // Update length based on filtered cities
-        next={() => setPage(page + 20)} // Fetch more cities
+        dataLength={filteredCities.length} 
+        next={() => setPage(page + 20)} 
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
