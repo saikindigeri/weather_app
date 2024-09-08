@@ -1,0 +1,222 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+  color: #333;
+  transition: background-color 0.4s ease;
+
+}
+
+/* Remove underline for all links */
+a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+.whole{
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+ 
+}
+/* Main container */
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+/* Table header with sorting */
+th {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  position: relative;
+  user-select: none;
+}
+
+th::after {
+  content: '↑↓';
+  font-size: 12px;
+  opacity: 0.7;
+  position: absolute;
+  right: 10px;
+}
+
+/* Table row hover animation */
+tbody tr {
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dynamic backgrounds based on weather conditions */
+.sunny {
+  background: linear-gradient(to right, #fbc2eb, #a18cd1);
+}
+
+.rainy {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+.cloudy {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+/* Button Styling */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+/* Weather info section */
+.weather-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+/* Search Bar Styling */
+.search-bar-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.weather-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 48%;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.search{
+  align-self: center;
+}
+.weather-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  table, .weather-info, .weather-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .weather-card {
+    width: 100%;
+  }
+}
+
+/* Advanced Animation for Section Appearances */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth Transition for All Elements */
+* {
+  transition: all 0.3s ease;
+}
